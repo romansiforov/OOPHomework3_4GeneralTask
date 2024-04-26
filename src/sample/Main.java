@@ -1,5 +1,8 @@
 package sample;
 
+import java.io.File;
+import java.io.IOException;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -35,6 +38,7 @@ public class Main {
 		addStudent(ia01, herbert);
 		addStudent(ia01, out);
 		
+		System.out.println(ia01.toString());
 		
 		searchStudent(ia01, "Siforova");
 		
@@ -61,6 +65,22 @@ public class Main {
 		
 		Student fetchedStudent = csvSC.fromStringRepresentation(student);
 		System.out.println(fetchedStudent.toString());
+		
+		try {
+			GroupFileStorage.saveGroupToCSV(ia01);
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		Group iaLoadedFromFile = new Group(); 
+		
+		try {
+			iaLoadedFromFile = GroupFileStorage.loadGroupFromCSV(new File("IA-01.csv"));
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println(iaLoadedFromFile.toString());
 
 	}
 	
