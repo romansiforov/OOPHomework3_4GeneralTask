@@ -42,7 +42,6 @@ public class Main {
 		
 		searchStudent(ia01, "Siforova");
 		
-		
 		searchStudent(ia01, "Siforo");
 
 		ia01.removeStudentByID(9);
@@ -80,7 +79,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		System.out.println(iaLoadedFromFile.toString());
+		System.out.println("Group fecthed from file looks like this "+iaLoadedFromFile.toString());
 
 	}
 	
