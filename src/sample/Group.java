@@ -2,6 +2,7 @@ package sample;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Group {
 	private String groupName;
@@ -76,11 +77,47 @@ public class Group {
 		return true;
 	}
 	
+	public boolean isDuplicatedStudentAddedToCurrentGroup() {
+		
+		for(int i = 0; i < students.length; i++) {
+			for(int j = 0; j < students.length; j++) {
+				if(students[i].equals(students[j]) && i != j) {
+					System.out.println(students[i].toString()+" with index "+i+" duplicates student with index "+j+" "+students[j].toString());
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
 
 	@Override
 	public String toString() {
 		return "Group [groupName=" + groupName + ", students=" + Arrays.toString(students) + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(students);
+		result = prime * result + Objects.hash(groupName);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Group other = (Group) obj;
+		return Objects.equals(groupName, other.groupName) && Arrays.equals(students, other.students);
+	}
+	
 	
 	
 }

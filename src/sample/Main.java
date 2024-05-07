@@ -35,52 +35,57 @@ public class Main {
 		addStudent(ia01, alexandra);
 		addStudent(ia01, oskar);
 		addStudent(ia01, gabby);
+		addStudent(ia01, roman);
 		addStudent(ia01, herbert);
 		addStudent(ia01, out);
 		
 		System.out.println(ia01.toString());
 		
-		searchStudent(ia01, "Siforova");
+		System.out.println("-------------------------------------------------------");
 		
-		searchStudent(ia01, "Siforo");
-
-		ia01.removeStudentByID(9);
+		System.out.println("Search status - "+ia01.isDuplicatedStudentAddedToCurrentGroup());
 		
-		searchStudent(ia01, "Kapenski");
+//		searchStudent(ia01, "Siforova");
+//		
+//		searchStudent(ia01, "Siforo");
+//
+//		ia01.removeStudentByID(9);
+//		
+//		searchStudent(ia01, "Kapenski");
+//		
+//		System.out.println(ia01.toString());
+//		
+//		ss.addStudentToGroup(ia01);
+//		
+//		ia01.sortStudentsByLastName();
 		
-		System.out.println(ia01.toString());
-		
-		ss.addStudentToGroup(ia01);
-		
-		ia01.sortStudentsByLastName();
-		
-		System.out.println(ia01.toString());
-		
-		System.out.println("--------------------------");
-		
-		student = csvSC.toStringRepresentation(herbert);
-		
-		System.out.println(student);
-		
-		Student fetchedStudent = csvSC.fromStringRepresentation(student);
-		System.out.println(fetchedStudent.toString());
-		
-		try {
-			GroupFileStorage.saveGroupToCSV(ia01);
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-		
-		Group iaLoadedFromFile = new Group(); 
-		
-		try {
-			iaLoadedFromFile = GroupFileStorage.loadGroupFromCSV(new File("IA-01.csv"));
-		} catch(IOException e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println("Group fecthed from file looks like this "+iaLoadedFromFile.toString());
-
+//		System.out.println(ia01.toString());
+//		
+//		System.out.println("--------------------------");
+//		
+//		student = csvSC.toStringRepresentation(herbert);
+//		
+//		System.out.println(student);
+//		
+//		Student fetchedStudent = csvSC.fromStringRepresentation(student);
+//		System.out.println(fetchedStudent.toString());
+//		
+//		try {
+//			GroupFileStorage.saveGroupToCSV(ia01);
+//		}catch(IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		Group iaLoadedFromFile = new Group(); 
+//		
+//		try {
+//			iaLoadedFromFile = GroupFileStorage.loadGroupFromCSV(new File("IA-01.csv"));
+//		} catch(IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		System.out.println("Group fecthed from file looks like this "+iaLoadedFromFile.toString());
+//
 	}
 	
 	public static void addStudent(Group group, Student student) {

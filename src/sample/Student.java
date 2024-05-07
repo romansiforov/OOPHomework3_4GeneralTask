@@ -1,5 +1,7 @@
 package sample;
 
+import java.util.Objects;
+
 public class Student extends Human{
 	private int id = 0;
 	private String groupName = null;
@@ -35,6 +37,27 @@ public class Student extends Human{
 				", last name="+ super.getLastName()+
 				", gender="+super.getGender()+"]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(groupName, id);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return Objects.equals(groupName, other.groupName) && id == other.id;
+	}
+	
 	
 	
 }
